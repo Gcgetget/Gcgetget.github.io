@@ -1,0 +1,77 @@
+<!-- <view class='title'>填写捡到的物品信息：</view>
+<view class='wp'>
+  <picker class='wpfl' bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+    <view class="picker">
+      捡到物品类别：{{array[index]}}
+    </view>
+  </picker>
+  
+  <view class='wp-add'>
+    <text style='font-size:14px'>上传捡到的物品照片，方便失主找回</text>
+    
+  </view>
+  
+  <view>{{leen}}
+  <view wx:for="{{tempFilePaths}}">
+     <image src='{{item}}' mode="aspectFit" class='wp-img'></image>
+  </view>
+  <button class='btn-img' plain='true' bindtap="chooseimage"><image src='../../images/add.png' mode='aspectFit' class='in-img'></image></button>
+  <!-- <image src="{{tempFilePaths}}" mode="aspectFit" class='wp-img'/> -->
+<!-- </view>
+  
+</view> --> 
+
+<form bindsubmit="save">
+    <view class="form-list">
+      <view class="form-item" style="padding-top:60rpx;">填写捡到的物品信息：</view>
+      <view class="form-item">
+        <view class="form-item-hd">捡到物品</view>
+        <view class="form-item-bd">
+              <input type="text" name="title" value="{{title}}" placeholder="请填写物品名称，如钱包、身份证" maxlength="17"/>
+        </view>
+      </view>
+      
+      <view class="form-item">
+        <view class="form-item-hd">捡到地点</view>
+        <view class="form-item-bd">
+              <input type="text" name="locationDesc" value="{{locationDesc}}" placeholder="请填写捡到物品大概位置，如航海楼" maxlength="17"/>
+        </view>
+      </view>
+      <view class="form-item">
+        <view class="form-item-hd">物品描述</view>
+        <view class="form-item-bd" style="height:75rpx;margin:0rpx 0 0 13rpx;">
+            <textarea name="infoDesc"   placeholder="请填写捡到物品详情，如颜色、大小等特征" maxlength="80" cols="50" style="width:450rpx;">{{infoDesc}}</textarea>
+        </view>
+      </view>
+      <view class="weui-cells">
+        <view class="weui-cell">
+          <view class="weui-cell__bd">
+            <view class="weui-uploader">
+              <view class="weui-uploader__hd">
+                <view class="weui-uploader__title">上传捡到物品图片，方便失主快速找回</view>
+                <view class="weui-uploader__info">{{imageList.length}}/{{maxCount}}</view>
+              </view>
+              <view class="weui-uploader__bd">
+                <view class="weui-uploader__files">
+                  <block wx:for="{{imageList}}" wx:for-item="image" wx:key="key">
+                    <view class="weui-uploader__file">
+                      <image class="weui-uploader__img" src="{{image}}" data-src="{{image}}" bindtap="previewImage"></image>
+                    </view>
+                  </block>
+                </view>
+                <view class="weui-uploader__input-box" hidden="{{!canChoose}}">
+                  <view class="weui-uploader__input" bindtap="chooseImage"></view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+        
+    </view>
+    
+    
+    <button formType="submit" class="edit-btn" style="margin-top:105rpx;">发   布</button>
+</form>
+<import src="../../component/message/message.wxml"/>
+<template is="message" data="{{message: message}}"/>

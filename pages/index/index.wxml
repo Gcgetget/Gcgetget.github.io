@@ -1,0 +1,66 @@
+<!-- index.wxml -->
+<view class='wxSearch-section'>
+  <view class='wxSearch-pancel'>
+    <input bindinput='bindKeyInput' class='wxSearch-input' placeholder='请输入物品名称' />
+    <button class='wxSearch-button' bindtap='wxSearch' type='primary' size='mini' plain="true" hover-class="button-hover">搜索</button>
+  </view>
+</view>
+<view class='search-item'>
+  <!-- 物品分类 -->
+  <picker class='wp-sort' bindchange="bindSortChange" value="{{idSort}}" range="{{wpSort}}">
+    <view class="picker">
+      物品分类：{{wpSort[idSort]}}
+    </view>
+  </picker>
+
+    <!-- 物品丢失地点 -->
+   <!-- <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{wpPlace}}" class='wp-place'>
+    <view class="picker">
+      丢失地点：{{wpPlace[0][multiIndex[0]]}} {{wpPlace[1][multiIndex[1]]}} {{wpPlace[2][multiIndex[2]]}}
+    </view>
+  </picker>  -->
+
+  <!-- 物品地点  -->
+  <picker class='wp-address' bindchange="bindAddressChange" value="{{idAddress}}" range="{{wpAddress}}">
+    <view class="picker">
+      丢失地点：{{wpAddress[idAddress]}}
+    </view>
+  </picker> 
+
+  <!-- 物品日期 -->
+  <!-- <picker mode="date" value="{{date}}" start="2015-09-01" end="2018-09-01" bindchange="bindDateChange" class='wp-date'>
+    <view class="picker">
+      丢失日期 : {{date}}
+    </view>
+  </picker>  -->
+
+  <!-- 物品日期  -->
+  <picker class='wp-address' bindchange="bindDateChange" value="{{idDate}}" range="{{wpDate}}">
+    <view class="picker">
+      丢失日期：{{wpDate[idDate]}}
+    </view>
+  </picker> 
+
+
+  <!-- 物品列表详情页  -->
+  <view class="container {{showView?'view-show':'view-hide'}}">
+    <!--列表模板  -->
+    <template name="lists">
+      <navigator url="../detail/detail?id={{id}}" hover-class="navigator-hover">
+        <view class='imgs'><image src="http://192.168.3.9:4002/{{PhotoPath}}" mode='aspectFit' class='in-img'></image></view>
+        <view class='infos'>
+          <view class='name'>物品名称：{{Name}}</view>
+          <view class='place'>物品地点：{{LostAddress}}</view>
+          <view class='date'>丢失日期：{{LostDate}}</view>
+        </view>
+      </navigator>
+    </template>
+    <!--循环输出列表  -->
+    <view wx:for="{{newsList}}" class='list'>
+      <template is="lists" data="{{...item}}" />
+    </view>
+  </view>
+</view>
+ 
+  
+

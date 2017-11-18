@@ -1,0 +1,29 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/deliver/deliver",
+    "pages/detail/detail",
+    "pages/aboutme/aboutme"
+    
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar":{
+    "list":[{
+      "pagePath":"pages/index/index",
+      "text":"搜索"
+    },{
+      "pagePath":"pages/deliver/deliver",
+      "text":"发布"
+    },{
+      "pagePath":"pages/aboutme/aboutme",
+      "text":"我的"
+    }
+    ]
+  }
+}

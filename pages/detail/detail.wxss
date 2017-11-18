@@ -1,0 +1,18 @@
+/* pages/detail/detail.wxss */
+.container{
+  display: block;
+  border-top: 1px #eee solid;
+  height: 100%;
+  position: flex;
+  flex-direction: column;
+  padding: 20rpx;
+}
+.name{
+  margin: 10rpx;
+}
+.place{
+  margin: 10rpx;
+}
+.date{
+  margin:10rpx;
+}

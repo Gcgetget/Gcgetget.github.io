@@ -1,0 +1,13 @@
+<!--detail.wxml  -->
+  <!-- 物品详情页  -->
+  <view wx:for="{{wpDetail}}" wx:for-item="wpInfos" class='container'>
+    <view class='imgs'>
+      <image src="http://192.168.3.9:4002/{{wpInfos.PhotoPath}}" mode='aspectFit' class='in-img'></image>
+    </view>
+    <view class='infos'>
+      <view class='name'>物品名称：{{wpInfos.Name}}</view>
+      <view class='place'>物品地点：{{wpInfos.LostAddress}}</view>
+      <view class='date'>丢失日期：{{wpInfos.LostDate}}</view>
+    </view>  
+  </view>
+  <view><button type='primary' bindtap='tel-confirm'>领取该物品</button></view>
